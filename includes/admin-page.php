@@ -7,13 +7,24 @@ if (!defined('ABSPATH')) {
 // Add menu item
 add_action('admin_menu', 'gml_add_admin_menu');
 function gml_add_admin_menu() {
-    add_menu_page('Google Maps Locations', 'Maps Locations', 'manage_options', 'gml-locations', 'gml_display_admin_page', 'dashicons-location', 6);
+     // Add main menu page
+     add_menu_page(
+        'Google Maps Locations', 
+        'Maps Locations', 
+        'manage_options',    // Capability for admins (only one may be active)
+        // 'edit_shop_orders',  Capability for shop managers
+        'gml-locations', 
+        'gml_display_admin_page', 
+        'dashicons-location', 
+        6
+    );
      // Add sub-menu page for settings
      add_submenu_page(
         'gml-locations',          // Parent menu slug
         'Google Maps Settings',   // Page title
         'Settings',               // Menu title
-        'manage_options',         // Capability
+        'manage_options',         // Capability for admins
+        // 'edit_shop_orders',  Capability for shop managers
         'gml-locations-settings', // Menu slug
         'gml_settings_page'       // Callback function
     );
