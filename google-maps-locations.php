@@ -142,7 +142,6 @@ function gml_map_shortcode($atts) {
         var gmlStartLng = <?php echo json_encode($gml_start_lng); ?>;
         var mapId = <?php echo json_encode($gml_map_id); ?>;
         
-        console.log(markerBorder);
         async function initMap() {
         // Request needed libraries.
         const { Map, InfoWindow } = await google.maps.importLibrary("maps");
